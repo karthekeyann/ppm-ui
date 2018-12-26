@@ -1,0 +1,193 @@
+<!-- start wrapper -->
+<top-menu>Loading...</top-menu>
+  <!-- end header -->
+  <div class="container">
+    <app-side-menu></app-side-menu>
+    <!-- end left panel -->
+
+    <!-- start right panel -->
+    <div class="right_panel">
+      <div class="breadcrumbs_area">
+        <ul class="breadcrumb">
+          <li>Mass Maintenance</li>
+          <li>Perform Mass Maintenance</li>
+          <li>Export Tasks</li>
+        </ul>
+      </div>
+      <!-- start content -->
+      <div class="content">
+        <h1>Real time-Export</h1>
+        <div><h5 style="color: red; align-self: left">{{errorMessage}}</h5></div>
+        <div class="content_box_new">
+          <div class="column_spacing">
+            <div class="floatLeft">
+              <label class="radio">
+                <input [(ngModel)]="exportSelection" type="radio" id="newExportRadioBtn" name="exportSelection" value="new"
+                (click)='enableDisbale(1)'>
+                Your Selection <span class="check_mark "></span></label>
+            </div>
+            <div class="floatLeft marginleft20">
+              <label class="radio">
+                <input [(ngModel)]="exportSelection" type="radio" id="existExportRadioBtn" name="exportSelection" (change)="getTemplates()" value="exist" 
+                (click)='enableDisbale(2)'>
+                <span class="check_mark "></span>Use Existing Template</label>
+            </div>
+            <div class="custom-select custom_select_width50 marginleft60" style="margin-top: -5px">
+              <select ngModel (ngModelChange)="getParameterSet($event)" id="existingDrpdwn" class="option" name="existingTemplate" value="exportSelection" [(ngModel)]="uuid">
+              <option disabled hidden [value]="undefined"></option>
+                <option *ngFor="let templates of templateList" [value]="templates.uuid">{{templates.name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <form action="" (ngSubmit)="exportExcelData(formData.value)" #formData="ngForm" novalidate="novalidate">
+          <div class="form_area">
+            <div class="form_column">
+              <div class="column_spacing1">
+                <div class="column_text_drop">
+                  <label for="name">Application</label>
+                </div>
+                <div class="custom-select custom_select_width50 disable_item">
+                  <select id="applicationDrpdwn" class="option" name="appName" (change)="appNameChange(appName.value);addExport(0)"
+                  [(ngModel)]="exportData.application" #appName="ngModel" ngModel>
+                    <option disabled hidden [value]="undefined"></option>
+                    <option *ngFor="let application of applicationList" [value]="application.name">{{application.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form_column">
+              <div class="column_text_drop">
+                <label for="name">Parameter Set</label>
+              </div>
+              <div class="custom-select custom_select_width30 disable_item ">
+                <select id="parameterNumDrpdwn" class="option" name="parameterSetNumber" [(ngModel)]="exportData.number"
+                (change)="getCompaniesByParamId($event.target.value)">
+                <option disabled hidden [value]="undefined"></option>
+                  <option *ngFor="let paramSet of parameterSetList" [value]="paramSet.number" [selected]="paramSet.number==changedId">{{paramSet.number}}</option>
+                </select>
+              </div>
+              <div class="custom-select custom_select_width50 marginleft5 disable_item ">
+                <select id="parameterNameDrpdwn" class="option" name="parameterSetName" [(ngModel)]="exportData.name" (change)="getCompaniesByParamName($event.target.value)">
+                  <option disabled hidden [value]="undefined"></option>
+                  <option *ngFor="let paramSet of parameterSetList" [value]="paramSet.name" [selected]="paramSet.name==selectedName">{{paramSet.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form_area">
+            <div class="form_column_text">
+              <div class="column_spacing2">
+                <label class="check_box checkbox_radio_text marginTop10">Combine multiple company data in a Single tab
+                  <input type="checkbox" name="singleTab" checked ngModel [(ngModel)]="singleTab">
+                  <span class="checkmark"></span> </label>
+              </div>
+            </div>
+            <div class="button_lightgrey floatRight">
+              <button type="submit" [disabled]="!isRecordSelected" class="width100 marginTop0">Export</button>
+            </div>
+          </div>
+        </form>
+        <div class="content_border marginTop10">
+          <h1 class="marginTop20">Selected Parameter Sets</h1>
+          <spinner name="mySpinner" loadingImage="../../assets/images_icons/spinner_round.gif">Loading...</spinner>
+        <div *ngIf="!spinnerActive">
+          <div class="datatable">
+            <table>
+              <thead>
+                <tr>
+                    <th scope="col" width="1%"><a href="#"></a></th>
+                    <th scope="col"><label class="check_box"><input type="checkbox" name="selectAll" value="" [(ngModel)]="selectedAll" (change)="selectAll();">
+                    <span class="checkmark active" style="visibility: visible !important"></span></label></th>
+                    <th [class.active]="order === 'applicationID'"
+                    (click)="setOrder('applicationID')" class="mdl-data-table__cell--non-numeric">Application<span [hidden]="reverse">▼</span
+                    ><span [hidden]="!reverse">▲</span></th> 
+                    <th [class.active]="order === 'number'"
+                    (click)="setOrder('number')" class="mdl-data-table__cell--non-numeric">Parameter Set Number<span [hidden]="reverse">▼</span
+                    ><span [hidden]="!reverse">▲</span></th>
+                    <th [class.active]="order === 'name'"
+                    (click)="setOrder('name')">Parameter Set Name<span [hidden]="reverse">▼</span
+                    ><span [hidden]="!reverse">▲</span></th>
+                    <th scope="col" class="colorBlack">Company</th>
+                    <th scope="col" class="colorBlack">Effective Date</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr *ngFor="let paramSet of selectedPsets | orderBy:
+                order:reverse:'case-insensitive' | paginate: { itemsPerPage: table1_itemsPerPage, currentPage: table1_cutrrentPage, id: 'first' }; let i = index">
+                  <td><a (click)="deleteFieldValue(i)"> <img src="../../assets/images_icons/delete_icon.png" width="20" height="20"
+                        title="delete" alt="delete" style="cursor:pointer"></a></td>
+                  <td><label class="check_box">
+                      <input type="checkbox" name="selectAll" value="" [(ngModel)]="paramSet.selected" (change)="checkIfAllSelected(i);">
+                      <span class="checkmark"></span></label></td>
+                  <td>{{paramSet.applicationID}}</td>
+                  <td>{{paramSet.number}}</td>
+                  <td>{{paramSet.name}}</td>
+                  <td *ngIf=" i === editRowId">
+                    <!-- (ngModelChange)="selectedCompanyDp($event)" -->
+                    <select ngModel [(ngModel)]="paramSet.companyID" (change)="onChange()">
+                      <!-- <option>All</option> -->
+                      <option *ngFor="let company of paramSet.companies" [value]="company.id">{{company.name}}</option>
+                    </select>
+                  </td>
+                  <td *ngIf=" i !== editRowId">
+                    <select [(ngModel)]="paramSet.companyID" (change)="onChange()">
+                      <!-- <option>All</option> -->
+                      <option *ngFor="let company of paramSet.companies" [value]="company.id">{{company.name}}</option>
+                    </select>
+                  </td>
+                  <td *ngIf=" i === editRowId">
+                      <div *ngIf = "rowId == i"> <h5 style="color: red; align-self: left">{{invalidDate}}</h5></div>
+                      <input type="text" id="effectiveDate" name="effectiveDate" class="form-control" (change)="onChange(paramSet.effectiveDate); getIndex(i)" [(ngModel)]="paramSet.effectiveDate"
+                      ngModel />
+                  </td>
+                  <td *ngIf=" i !== editRowId">
+                      <div *ngIf = "rowId == i"> <h5 style="color: red; align-self: left">{{invalidDate}}</h5></div>
+                      <input type="text" id="effectiveDate" name="effectiveDate" class="form-control" (change)="onChange(paramSet.effectiveDate); getIndex(i)" [(ngModel)]="paramSet.effectiveDate"
+                      ngModel placeholder="yyyy-mm-dd"/>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="no_data_desc" *ngIf="!selectedPsets.length > 0">No Data Available</p>
+            <!-- <app-pagination [exportTableList]="selectedPsets">Loading...</app-pagination> -->
+            <div class="pagination">
+                <div class="floatLeft">
+                    <div class="custom-select floatLW120">
+                      <select [(ngModel)]="table1_pageSize" name="pageSize" (change)="itemsPerPage()">
+                        <option value="5" selected>show 5 items</option>
+                        <option value="10">show 10 items</option>
+                        <option value="20">show 20 items</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="pagination_text">{{table1_currentPageItemsFrom}} to {{table1_currentPageItemsTo}} of {{table1_totalItems}} </div>
+                <div class="floatRight marginTop10"><pagination-controls (pageChange)="cutrrentPage($event)" id="first"></pagination-controls></div>
+              </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!-- end content -->
+    </div>
+    <!-- end right panel -->
+  </div>
+  <!-- end container -->
+  <!-- Footer start -->
+  <div class="push_footer">&nbsp;</div>
+  <div id="footer">
+    <div class="footer_area">
+      <ul>
+        <li><a href="#news">Contact us</a></li>
+        <li><a href="#contact">Search Center</a></li>
+        <li><a href="#about">Site Map</a></li>
+      </ul>
+      <p> Powered by Intelligent SOA <sup>TM</sup></p>
+      <p> &copy; CeleritiFinTech. All rights reserved</p>
+    </div>
+  </div>
+  <!-- end footer -->
+
+<!-- end wrapper -->

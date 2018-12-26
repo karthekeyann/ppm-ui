@@ -1,0 +1,135 @@
+<app-side-menu></app-side-menu>
+<div class='row'
+ style="margin-right: 30px; margin-left: 230px; margin-top: -500px;">
+ <div class="panel panel-default">
+  <!-- Default panel contents -->
+
+  <div class='panel-body' style="padding: 0px;">
+   <table
+    class='table table-bordered table-condensed table-sm id="tabledata" cellspacing="0" width="100%"'>
+
+    <thead>
+     <tr class="header">
+      <th class="content">Location</th>
+      <th class="content">Information</th>
+      <th class="content">Font Type</th>
+      <th class="content">Style</th>
+      <th class="content">Size</th>
+      <th class="content">Foreground Font Color</th>
+      <th class="content">Background Cell Color</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <td>Title Row</td>
+      <td>Parameter Set Name and Number</td>
+      <td><select id="fontType">
+        <option *ngFor="let fontType of fontTypes" [ngValue]="fontType">{{fontType}}</option>
+      </select></td>
+      <td><select id="styles">
+        <option *ngFor="let style of styles" [ngValue]="style">{{style}}</option>
+      </select></td>
+      <td><select id="sizes">
+        <option *ngFor="let size of sizes" [ngValue]="size">{{size}}</option>
+      </select></td>
+      <td><input type="color"></td>
+      <td></td>
+     </tr>
+     <tr>
+      <td>Heading Row</td>
+      <td>Keys - Mandatory</td>
+      <td><select id="fontType">
+        <option *ngFor="let fontType of fontTypes" [ngValue]="fontType">{{fontType}}</option>
+      </select></td>
+      <td><select id="styles">
+        <option *ngFor="let style of styles" [ngValue]="style">{{style}}</option>
+      </select></td>
+      <td><select id="sizes">
+        <option *ngFor="let size of sizes" [ngValue]="size">{{size}}</option>
+      </select></td>
+      <td><input type="color"></td>
+      <td></td>
+     </tr>
+     <tr>
+      <td>Heading Row</td>
+      <td>Keys - Optional</td>
+      <td><select id="fontType">
+        <option *ngFor="let fontType of fontTypes" [ngValue]="fontType">{{fontType}}</option>
+      </select></td>
+      <td><select id="styles">
+        <option *ngFor="let style of styles" [ngValue]="style">{{style}}</option>
+      </select></td>
+      <td><select id="sizes">
+        <option *ngFor="let size of sizes" [ngValue]="size">{{size}}</option>
+      </select></td>
+      <td><input type="color"></td>
+      <td></td>
+     </tr>
+     <tr>
+      <td>Heading Row</td>
+      <td>Data Cells</td>
+      <td><select id="fontType">
+        <option *ngFor="let fontType of fontTypes" [ngValue]="fontType">{{fontType}}</option>
+      </select></td>
+      <td><select id="styles">
+        <option *ngFor="let style of styles" [ngValue]="style">{{style}}</option>
+      </select></td>
+      <td><select id="sizes">
+        <option *ngFor="let size of sizes" [ngValue]="size">{{size}}</option>
+      </select></td>
+      <td><input type="color"></td>
+      <td></td>
+     </tr>
+     <tr>
+      <td>Data Row</td>
+      <td>Odd Numbered</td>
+      <td><select id="fontType">
+        <option *ngFor="let fontType of fontTypes" [ngValue]="fontType">{{fontType}}</option>
+      </select></td>
+      <td><select id="styles">
+        <option *ngFor="let style of styles" [ngValue]="style">{{style}}</option>
+      </select></td>
+      <td><select id="sizes">
+        <option *ngFor="let size of sizes" [ngValue]="size">{{size}}</option>
+      </select></td>
+      <td><input type="color"></td>
+      <td></td>
+     </tr>
+     <tr>
+      <td>Data Row</td>
+      <td>Even Numbered</td>
+      <td><select id="fontType">
+        <option *ngFor="let fontType of fontTypes" [ngValue]="fontType">{{fontType}}</option>
+      </select></td>
+      <td><select id="styles">
+        <option *ngFor="let style of styles" [ngValue]="style">{{style}}</option>
+      </select></td>
+      <td><select id="sizes">
+        <option *ngFor="let size of sizes" [ngValue]="size">{{size}}</option>
+      </select></td>
+      <td><input type="color"></td>
+      <td></td>
+     </tr>
+     <tr>
+      <td>Heading Row</td>
+      <td>Interest Rate Matrix - Extended Tier Data Cells</td>
+      <td><select id="fontType">
+        <option *ngFor="let fontType of fontTypes" [ngValue]="fontType">{{fontType}}</option>
+      </select></td>
+      <td><select id="styles">
+        <option *ngFor="let style of styles" [ngValue]="style">{{style}}</option>
+      </select></td>
+      <td><select id="sizes">
+        <option *ngFor="let size of sizes" [ngValue]="size">{{size}}</option>
+      </select></td>
+      <td><input type="color"></td>
+      <td></td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</div>
+
+
+

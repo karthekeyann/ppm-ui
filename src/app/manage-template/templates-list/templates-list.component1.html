@@ -1,0 +1,52 @@
+<app-side-menu></app-side-menu>
+<div style="margin-right: -15px; margin-left: 230px; margin-top: -528px;" class="row export-pcd">
+
+<br>
+<br>
+
+<p> Manage Templates > </p>
+
+
+<br>
+
+<div class="message" *ngIf = "statusCode">** Template Deleted Successfully</div>
+
+<div>
+<p> Your Configurations </p>
+</div>
+
+<button class="btn" routerLink="create" routerLinkActive="active">New</button>
+
+
+<br>
+<br>
+
+
+<table>
+<tr>
+<th>Actions</th>
+<th>Template Name</th>
+<th>Created On</th>
+<th>Last Updated By</th>
+<th>Changed On</th>
+</tr>
+
+
+
+<tr *ngFor = "let template of templates">
+<td><button class="btnTable" routerLink="view" routerLinkActive="active">View</button>
+	<button class="btnTable" (click) = "onClickUpdate(template)">Edit</button>
+	<button class="btnTable" routerLink="copy" routerLinkActive="active">Copy</button>
+	<button class="btnTable" (click) = "onClickDelete(template)">Delete</button>
+	<!-- <button class="btnTable" routerLink="delete" routerLinkActive="active">delete</button>  --> </td> 								
+								
+								
+<td>{{template.name}}</td>
+<td>{{template.createdOn}}</td>
+<td>{{template.lastUpdatedBy}}</td>
+<td>{{template.changedOn}}</td>
+</tr>
+
+
+</table>
+

@@ -1,0 +1,74 @@
+   <!-- <div class='row' style="margin-right: 30px; margin-left: 230px;">
+    <div class="panel panel-default">
+
+         <div class="btn-toolbar panel-heading" role="toolbar" style="margin: 0;">
+
+            <div class="btn-group">
+            <select [(ngModel)]="model.id "name="id" (change)="page()" style="margin-top:10px; cursor:pointer">
+            <option value="5">show 5 items</option>
+            <option value="10">show 10 items</option>
+            <option value="15">show 15 items</option>
+            <option value="50">show 50 items</option>
+            </select> 
+            </div>
+
+            <div class="btn-group">
+            <label class="btn-group" style="margin-top:5px; margin-left:250px">Page &nbsp; </label>
+               <ul class="pagination" >
+                   <li *ngFor="let page of pagesIndex"  [ngClass]="{'active': (currentIndex == page)}">
+                  <a (click)="setPage(page)" >{{page}}</a></li>
+               </ul>
+            </div>
+            
+             <div class="btn-group">
+               <label style="margin-top:10px; margin-left:225px"> {{currentIndex}}-{{pageNumber}} of {{pageNumber}}</label>
+            </div>
+            
+            <div class="btn-group pull-right">
+               <ul class="pagination" >
+               
+                  <li [ngClass]="{'disabled': (currentIndex == 1 || pageNumber == 0)}" >
+                  <a (click)="prevPage()">Previous</a></li>
+                  <li [ngClass]="{'disabled': (currentIndex == pageNumber || pageNumber == 0)}" >
+                  <a (click)="nextPage()" class="pagination_next">&raquo;</a>
+               </ul>
+            </div>
+
+
+            <div class="pagination_item">
+               <ul>
+                  <li [ngClass]="{'disabled': (currentIndex == 1 || pageNumber == 0)}">
+                  <a (click)="prevPage()" class="pagination_pre">&laquo;</a> </li>
+                  <li [ngClass]="{'disabled': (currentIndex == pageNumber || pageNumber == 0)}">
+                  <a href="#" class="pagination_next">&raquo;</a></li>
+               </ul>
+            </div>
+
+
+
+         </div>
+      </div>
+   </div> -->
+
+   <div class="pagination">
+    <div class="floatLeft">
+      <div class="custom-select floatLW120">
+        <select [(ngModel)]="model.id "name="id" (change)="page()">
+          <option value="5" selected>show 5 items</option>
+          <option value="10">show 10 items</option>
+          <option value="15">show 20 items</option>
+        </select>
+      </div>
+      <div class="pagination_text">{{currentIndex}} to {{pageNumber}} of {{pageNumber}} </div>
+    </div>
+   <div class="pagination_item">
+      <ul>
+         <li [ngClass]="{'disabled': (currentIndex == 1 || pageNumber == 0)}">
+            <a (click)="prevPage()" class="pagination_pre">&laquo;</a> </li>
+         <li *ngFor="let page of pagesIndex" [ngClass]="{'active': (currentIndex == page)}">
+            <a (click)="setPage(page)">{{page}}</a></li>
+         <li [ngClass]="{'disabled': (currentIndex == pageNumber || pageNumber == 0)}">
+            <a (click)="nextPage()" class="pagination_next">&raquo;</a></li>
+      </ul>
+   </div>
+  </div>

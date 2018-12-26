@@ -1,0 +1,205 @@
+<!-- start wrapper -->
+<top-menu>Loading...</top-menu>
+<!-- end header -->
+<div class="container">
+  <div class="left_panel">
+    <div id="sidemenu" style="opacity:.3; pointer-events: none">
+      <ul>
+        <li class="active"><a href="#"><span>Your Tasks</span></a></li>
+        <li class="sidemenu-submenu"><a href="#"><span>Import Tasks</span></a>
+          <ul>
+            <li class="selected"><a href="#"><span>In Progress</span></a></li>
+            <li><a href="#"><span>Completed</span></a></li>
+            <li><a href="#"><span>Real time-Import</span></a></li>
+            <li><a href="#"><span>Scheduled-Import</span></a></li>
+          </ul>
+        </li>
+        <li class="sidemenu-submenu"><a href="#"><span>Export Tasks</span></a>
+          <ul>
+            <li><a href="#"><span>Real time-Export</span></a></li>
+            <li class="last"><a href="#"><span>Scheduled-Export</span></a></li>
+          </ul>
+        </li>
+        <li class="last"><a href="#"><span>Excel Style Setting</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- end left panel -->
+  <div class="right_panel">
+    <div class="breadcrumbs_area">
+      <ul class="breadcrumb">
+        <li>Mass Maintenance</li>
+        <li><a href="#">Manage Template</a></li>
+      </ul>
+    </div>
+    <!-- start content -->
+    <div class="content">
+      <h1>Copy</h1>
+      <div>
+        <h5 style="color: red; align-self: left">{{errorMessage}}</h5>
+      </div>
+      <div class="content_area">
+        <div class="button_area marginTop10">
+            <form action="" (ngSubmit)="formData.valid && create_Template()"
+            #formData="ngForm" novalidate>
+          <div class="button_lightgrey floatLeft marginBottom10">
+            <button type="submit" routerLink="/templates" routerLinkActive="active"><img src="../../assets/images_icons/back_icon.png"
+                alt="Back">Back</button>
+          </div>
+          <div class="form_area">
+              <div class="column_text form_column">
+                  <div *ngIf="formData.submitted && !name.valid"
+                  style="color: red; size: 20px;">Template name not entered</div>
+                <label for="name" class="required">Template Name</label>
+                <input type="text" id="templateName" size="50" ngModel #name="ngModel" name='name' required
+                  placeholder="Template Name" [(ngModel)]="template.name" />
+              </div>
+              <div class="form_column">
+                <div class="column_text">
+                  <label for="name">Application</label>
+                </div>
+                <div class="custom-select custom_select_width60">
+                  <select [(ngModel)]="appId" class="from-control "name='application' (change)="onApplicationChange()" required>
+                    <!-- <option disabled hidden [value]="application.id"></option> -->
+                    <option *ngFor="let application of applicationList" [value]="application.id">{{application.name}}</option>
+                  </select>
+                </div>
+              </div>
+          </div>
+        </form>
+          <div class="datatable">
+            <table>
+              <thead>
+                <tr>
+                  <th [class.active]="tableOrderOne === 'numberOne'" (click)="setOrderOne('numberOne')">Parameter Set Number<span [hidden]="tableReverseOne">▼</span><span
+                      [hidden]="!tableReverseOne">▲</span></th>
+                  <th [class.active]="tableOrderOne === 'nameOne'" (click)="setOrderOne('nameOne')">Parameter Set Name<span [hidden]="tableReverseOne">▼</span><span
+                      [hidden]="!tableReverseOne">▲</span></th>
+                  <th width="3%"><a href="#">Select</a></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let pSet of cacheParameterSets | orderBy:
+                tableOrderOne:tableReverseOne:'case-insensitive'  | paginate: { itemsPerPage: table1_itemsPerPage, currentPage: table1_cutrrentPage, id: 'first' }; let i = index">
+                  <td>{{pSet.number}}</td>
+                  <td>{{pSet.name}}</td>
+                  <td align="center"><img (click)="addParameterSet(pSet); deletePset(i)" src="../../assets/images_icons/select_icon.png"
+                      width="16" height="16" alt="Selected Move" style="cursor: pointer;"></td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="no_data_desc" *ngIf="!cacheParameterSets.length > 0">No Data Available</p>
+            <!-- <app-pagination [exportTableList]="cacheParameterSets">Loading...</app-pagination> -->
+            <div class="pagination">
+                <div class="floatLeft">
+                    <div class="custom-select floatLW120">
+                      <select [(ngModel)]="table1_pageSize" name="pageSize" (change)="itemsPerPage()">
+                        <option value="5" selected>show 5 items</option>
+                        <option value="10">show 10 items</option>
+                        <option value="20">show 20 items</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="pagination_text">{{table1_currentPageItemsFrom}} to {{table1_currentPageItemsTo}} of {{table1_totalItems}} </div>
+                <div class="floatRight marginTop10"><pagination-controls (pageChange)="cutrrentPage($event)" id="first"></pagination-controls></div>
+              </div>
+          </div>
+          <div class="content_border marginTop30">
+            <h1 class="marginTop20">Selected Parameter Sets</h1>
+            <div class="datatable">
+              <table>
+                <thead>
+                  <tr>
+                    <th [class.active]="order === 'applicationID'"
+                    (click)="setOrder('applicationID')" class="mdl-data-table__cell--non-numeric">Application<span [hidden]="reverse">▼</span
+                    ><span [hidden]="!reverse">▲</span></th> 
+                    <th [class.active]="order === 'number'"
+                    (click)="setOrder('number')" class="mdl-data-table__cell--non-numeric">Parameter Set Number<span [hidden]="reverse">▼</span
+                    ><span [hidden]="!reverse">▲</span></th>
+                    <th [class.active]="order === 'name'"
+                    (click)="setOrder('name')">Parameter Set Name<span [hidden]="reverse">▼</span
+                    ><span [hidden]="!reverse">▲</span></th>
+                    <th scope="col" class="colorBlack">Company</th>
+                    <th scope="col" class="colorBlack">Effective Date</th>
+                    <th colspan="4" width="3%">&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let paramSet of selectedParameterSets | orderBy:
+                  order:reverse:'case-insensitive' | paginate: { itemsPerPage: table2_itemsPerPage, currentPage: table2_cutrrentPage, id: 'second' }; let i = index;">
+                    <td>{{paramSet.applicationID}}</td>
+                    <td>{{paramSet.number}}</td>
+                    <td>{{paramSet.name}}</td>
+                    <td *ngIf=" i === editRowId">
+                        <!-- (ngModelChange)="selectedCompanyDp($event)" -->
+                        <select ngModel [(ngModel)]="paramSet.companyID" name="comapnies">
+                          <!-- <option>All</option> -->
+                          <option *ngFor="let company of paramSet.companies" [value]="company.id">{{company.name}}</option>
+                        </select>
+                      </td>
+                      <td *ngIf=" i !== editRowId">
+                        <select [(ngModel)]="paramSet.companyID" name="comapnies">
+                          <!-- <option>All</option> -->
+                          <option *ngFor="let company of paramSet.companies" [value]="company.id">{{company.name}}</option>
+                        </select>
+                      </td>
+                      <td *ngIf=" i === editRowId">
+                        <input type="text" id="effectiveDate" name="effectiveDate" #date="ngModel" (change)="onChange(date.value)" class="form-control" [(ngModel)]="paramSet.effectiveDate"
+                          ngModel />
+                      </td>
+                      <td *ngIf=" i !== editRowId">
+                        <input type="text" id="effectiveDate" name="effectiveDate" #date="ngModel" (change)="onChange(date.value)" class="form-control" [(ngModel)]="paramSet.effectiveDate"
+                          ngModel placeholder="yyyy-mm-dd"/>
+                      </td>
+                    <td width="16px"><img src="../../assets/images_icons/delete_icon.png" width="16" height="16" alt="Delete"
+                        (click)="deleteParameterSet(i); addPset(paramSet)" style="cursor: pointer;"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="no_data_desc" *ngIf="!selectedParameterSets.length > 0">No Data Available</p>
+              <!-- <app-pagination [exportTableList]="selectedParameterSets">Loading...</app-pagination> -->
+              <div class="pagination">
+                  <div class="floatLeft">
+                      <div class="custom-select floatLW120">
+                        <select [(ngModel)]="table2_pageSize" name="pageSize" (change)="itemsPerPage()">
+                          <option value="5" selected>show 5 items</option>
+                          <option value="10">show 10 items</option>
+                          <option value="20">show 20 items</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="pagination_text">{{table2_currentPageItemsFrom}} to {{table2_currentPageItemsTo}} of {{table2_totalItems}} </div>
+                  <div class="floatRight marginTop10"><pagination-controls (pageChange)="table2_cutrrentPage = $event" id="second"></pagination-controls></div>
+                </div>
+            </div>
+          </div>
+          <div class="button_green floatRight marginTop10">
+            <button type="submit" [disabled]="dissableSaveBtn" (click)="formData.valid && create_Template()">
+              <img src="../../assets/images_icons/save_icon.png" alt="Save">Save</button>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+
+    <!-- end content -->
+  </div>
+  <!-- end right panel -->
+</div>
+<!-- end container -->
+<!-- Footer start -->
+<div class="push_footer">&nbsp;</div>
+<div id="footer">
+  <div class="footer_area">
+    <ul>
+      <li><a href="#news">Contact us</a></li>
+      <li><a href="#contact">Search Center</a></li>
+      <li><a href="#about">Site Map</a></li>
+    </ul>
+    <p> Powered by Intelligent SOA <sup>TM</sup></p>
+    <p> &copy; CeleritiFinTech. All rights reserved</p>
+  </div>
+</div>
+<!-- end footer -->
+
+<!-- end wrapper -->

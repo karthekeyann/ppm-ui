@@ -1,0 +1,121 @@
+<!-- start wrapper -->
+<top-menu>Loading...</top-menu>
+
+  <div class="container">
+    <!-- start left panel -->
+    <app-side-menu></app-side-menu>
+    <!-- end left panel -->
+
+    <!-- start right panel -->
+    <div class="right_panel">
+      <div class="breadcrumbs_area">
+        <ul class="breadcrumb">
+          <li>Mass Maintenance</li>
+          <li>Perform Mass Maintenance</li>
+          <li>Import Tasks</li>
+        </ul>
+      </div>
+      <!-- start content -->
+      <div class="content">
+        <h1>Scheduled Import - View</h1>
+        <div><h5 style="color: red; align-self: left">{{errorMessage}}</h5></div>
+        <div class="form_area">
+          <form action="" class="width_70" (ngSubmit)="formData.valid" #formData="ngForm" novalidate>
+            <fieldset [disabled]="true">
+              <div class="column_text form_column_one">
+                <div *ngIf="formData.submitted && !taskName.valid" style="color: red; size: 20px;">Task Name is
+                  required</div>
+                <label for="taskName" class="required">Task Name</label>
+                <input type="text" size="100" name="" placeholder="Task Name" name="taskName" #taskName="ngModel"
+                  ngModel [(ngModel)]="data.name" required />
+              </div>
+              <div class="column_text form_column3">
+                <div *ngIf="formData.submitted && !startDate.valid" style="color: red;">Start Date required</div>
+                <div *ngIf="formData.submitted && !frequency.valid" style="color: red;">please select Frequency</div>
+                <div *ngIf="formData.submitted && !dayToImport.valid" style="color: red;">please select DayToImport</div>
+                <label for="startDate" class="required_grey">Start Date</label>
+                <input type="text" size="11" name="startDate" placeholder="yyyy-mm-dd" #startDate="ngModel" ngModel
+                  [(ngModel)]="data.effectiveDate" required />
+                <span> <img src="../../assets/images_icons/calander_icon.png" width="24" height="24" alt="Date"></span>
+                <!-- <button class="btn btn-outline-secondary calendar"
+							(click)="d.toggle()" type="button"></button> -->
+              </div>
+              <div class="form_column3" id="bloc1">
+                <div class="column_text">
+                  <label for="frequency" class="required_grey">Frequency</label>
+                </div>
+                <div class="custom-select custom_select_width50">
+                  <select name="frequency" #frequency="ngModel" ngModel
+                   [(ngModel)]="data.frequency" required>
+                    <option *ngFor="let freqs of freq" [value]="freqs">{{freqs}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form_column3" id="bloc1" *ngIf="frequency.value === 'WEEKLY' || frequency.value === 'MONTHLY'">
+                <div class="column_text" id="bloc2" *ngIf="frequency.value === 'MONTHLY'">
+                  <label for="dayToImport" class="required_grey">Date to Import</label>
+                </div>
+                <div class="column_text" id="bloc2" *ngIf="frequency.value === 'WEEKLY'"><label for="dayToImport">Day To Import </label>
+                </div>
+                <div id="bloc3" class="custom-select custom_select_width50">
+                  <select name="dayToImport" #dayToImport="ngModel" ngModel [(ngModel)]="data.freqPattern" required>
+                    <option *ngFor="let item of day" [value]="item">{{item}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="column_text form_column_one">
+                <div *ngIf="formData.submitted && !location.valid" style="color: red;">File location is required</div>
+                <label for="name" class="required_grey">File Name</label>
+                <input type="text" size="100" placeholder="File Name" name="fileLocation" #location="ngModel" ngModel
+                  [(ngModel)]="data.filePath" required />
+                <!-- <div><h6>(please provide the full path of the file with file name as C:\\users\\smanickam2\\CISimport.xls)</h6></div> -->
+              </div>
+              <div class="column_text form_column_one">
+                <label for="name">Remarks</label>
+                <input type="text" size="100" name="remarks" placeholder="" ngModel [(ngModel)]="data.remarks" required />
+              </div>
+
+              <div class="form_area_section marginTop20">
+                <div class="form_column"><span style="padding:10px 10px 0 0">Activate Schedule?</span>
+                  <label class="switch">
+                    <input type="checkbox" checked name="status" ngModel checked [(ngModel)]="status">
+                    <span class="slider round"></span> </label>
+                </div>
+                <!-- <div class="form_column" style="padding-right:12px">
+                <div class="floatRight">
+                  <div class="button_green floatLeft">
+                    <button type="submit" class="width100">Save</button>
+                  </div>
+                  <div class="button_lightgrey floatLeft marginleft10">
+                    <button type="submit" class="width100">Cancel</button>
+                  </div>
+                </div>
+              </div> -->
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+
+      <!-- end content -->
+    </div>
+    <!-- end right panel -->
+  </div>
+  <!-- end container -->
+  <!-- Footer start -->
+  <div class="push_footer">&nbsp;</div>
+  <div id="footer">
+    <div class="footer_area">
+      <ul>
+        <li><a href="#news">Contact us</a></li>
+        <li><a href="#contact">Search Center</a></li>
+        <li><a href="#about">Site Map</a></li>
+      </ul>
+      <p> Powered by Intelligent SOA <sup>TM</sup></p>
+      <p> &copy; CeleritiFinTech. All rights reserved</p>
+    </div>
+  </div>
+  <!-- end footer -->
+
+
+<!-- end wrapper -->

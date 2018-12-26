@@ -1,0 +1,141 @@
+<app-side-menu></app-side-menu>
+
+<div style="margin-right: -15px; margin-left: 230px; margin-top: -528px;" class="row export-pcd">
+	 <div class="form-group" style=" padding: 25px">
+	<h5 style="color: blue; align-self: left">Your Scheduled Imports</h5>
+			<div style="padding-left: 1010px">
+			<nav>
+				<button [routerLink]="['create']" class="btn" role="button"
+					>New</button>
+			</nav>
+			</div>
+		<br>
+	<!-- <div>
+		<div class='panel-body'style="padding: 0px;">
+         <table class='table table-bordered table-condensed table-striped table-sm id="tabledata" cellspacing="0" width="100%"'>
+			<tr >
+				<th>Action</th>
+				<th>TaskName</th>
+				<th>Status</th>
+				<th>Created On</th>
+				<th>Last Updated by</th>
+				<th>Last Updated on</th>
+			</tr>
+			<tr *ngFor="let sheduleImports of sheduledImports " >
+					<td><nav>
+							<a [routerLink]="['view',sheduleImports.id]" class="bootstrap-link" role="button"
+								routerLinkActive="active">view</a>
+							<a [routerLink]="['copy']" class="bootstrap-link" role="button"
+								routerLinkActive="active">copy</a>
+							<a [routerLink]="['edit',sheduleImports.id]" class="bootstrap-link" role="button"
+								routerLinkActive="active">edit</a>
+							<a [routerLink]="['delete']" class="bootstrap-link" role="button"
+								routerLinkActive="active">delete</a>
+						</nav></td>
+					<td>{{sheduleImports.taskName}}</td>
+				<td>{{sheduleImports.status}}</td>
+				<td>{{sheduleImports.createdOn}}</td>
+				<td>{{sheduleImports.lastUpdatedBy}}</td>
+				<td>{{sheduleImports.lastUpdatedOn}}</td>
+			</tr>
+
+		</table>
+		</div>
+	</div> -->
+	
+	
+	<div class="panel panel-default">
+    <!-- Default panel contents -->
+
+    <div class='panel-body'style="padding: 0px;">
+         <table class='table table-bordered table-condensed table-striped table-sm id="tabledata" cellspacing="0" width="100%"'>
+         
+            <thead>
+             <tr>
+           <!--    <th class="header">Action</th>
+               <th class="header"(click)="pagination.sort('description')">TaskName
+               <span class="glyphicon sort-icon" *ngIf="pagination.key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+               <th class="header"(click)="pagination.sort('description')">Status
+               <span class="glyphicon sort-icon" *ngIf="pagination.key =='description'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+               <th class="header"(click)="pagination.sort('description')">Created On
+               <span class="glyphicon sort-icon" *ngIf="pagination.key =='description'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+               <th class="header"(click)="pagination.sort('description')">Last Updated by
+               <span class="glyphicon sort-icon" *ngIf="pagination.key =='description'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th>
+               <th class="header"(click)="pagination.sort('description')">Last Updated on
+               <span class="glyphicon sort-icon" *ngIf="pagination.key =='description'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span></th> -->
+           <th class="header">Action</th>
+               <th >TaskName</th>
+               <th >Status</th>
+               <th >Created On</th>
+               <th >Last Updated By</th>
+               <th >Last Updated On</th>
+            </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let scheduleImport of sheduledImports">
+                 <td><nav>
+							<a [routerLink]="['view',scheduleImport.id]" class="bootstrap-link" role="button"
+								routerLinkActive="active">view</a>
+							<a [routerLink]="['copy',scheduleImport.id]" class="bootstrap-link" role="button"
+								routerLinkActive="active">copy</a>
+							<a [routerLink]="['edit',scheduleImport.id]" class="bootstrap-link" role="button"
+								routerLinkActive="active">edit</a>
+							<a (click)="deleteSheduleImport(scheduleImport.id)" class="bootstrap-link" role="button"
+								routerLinkActive="active">delete</a>
+						</nav></td>
+					<td>{{scheduleImport.taskName}}</td>
+				<td>{{scheduleImport.status}}</td>
+				<td>{{scheduleImport.createdOn}}</td>
+				<td>{{scheduleImport.lastUpdatedBy}}</td>
+				<td>{{scheduleImport.lastUpdatedOn}}</td>
+               </tr>
+            </tbody>
+         </table>
+         </div>
+<!--             <div class="dataTables_length bs-select" id="dtBasicExample_length">
+
+            </div> -->
+        <!--  <div class="btn-toolbar panel-heading" role="toolbar" style="margin: 0;">
+          <div class="btn-group">
+               <label style="margin-top:10px">Page {{currentIndex}}/{{pageNumber}}</label>
+            </div>
+            <div class="btn-group">
+            <select  [(ngModel)]="pagination.model.id "name="id" (change)="pagination.page()" style="margin-top:10px">
+            <option value="5">show 5 items</option>
+            <option value="10">show 10 items</option>
+            <option value="15">show 15 items</option>
+            <option value="50">show 50 items</option>
+            </select> 
+            </div>
+       <div class="btn-group">
+            <label style="margin-top:10px; margin-left:250px">Page {{currentIndex}}</label>
+            </div>
+            
+            <div class="btn-group">
+            <label class="btn-group" style="margin-top:5px; margin-left:250px">Page &nbsp; </label>
+               <ul class="pagination" >
+                   <li *ngFor="let page of pagination.pagesIndex"  [ngClass]="{'active': (currentIndex == page)}">
+                  <a (click)="pagination.setPage(page)">{{page}}</a></li>
+               </ul>
+            </div>
+            
+             <div class="btn-group">
+               <label style="margin-top:10px; margin-left:225px"> {{pagination.currentIndex}}-{{pagination.pageNumber}} of {{pagination.pageNumber}}</label>
+            </div>
+            
+            <div class="btn-group pull-right">
+               <ul class="pagination" >
+               
+                  <li [ngClass]="{'disabled': (currentIndex == 1 || pageNumber == 0)}" >
+                  <a (click)="pagination.prevPage()">Previous</a></li>
+                  <li *ngFor="let page of pagesIndex"  [ngClass]="{'active': (currentIndex == page)}">
+                  <a (click)="setPage(page)" href="#" >{{page}}</a></li>
+                  <li [ngClass]="{'disabled': (currentIndex == pageNumber || pageNumber == 0)}" >
+                  <a (click)="pagination.nextPage()">Next</a></li>
+               </ul>
+            </div>
+         </div> -->
+      </div>
+	
+	</div>
+	</div>

@@ -1,0 +1,529 @@
+{
+   "owner": "Foundation",
+   "ParamSet": [
+      {
+         "name": "ACCT NUMBER DISPLAY/EDIT PARAMETERS ",
+         "id": "9999"
+      },
+      {
+         "name": "CORE CIF ROUTER ",
+         "id": "51225"
+      },
+      {
+         "name": "NSF SCORING VARIABLES ",
+         "id": "51226"
+      },
+      {
+         "name": "NSF SCORING CRITERIA MAP 2",
+         "id": "51227"
+      },
+      {
+         "name": "NSF SCORING MATRIX",
+         "id": "51229"
+      },
+      {
+         "name": "NSF SCORE REDUCTION",
+         "id": "51231"
+      },
+      {
+         "name": "NSF SCORE PENALTY",
+         "id": "51232"
+      },
+      {
+         "name": "NSF SCORING CRITERIA ",
+         "id": "51233"
+      },
+      {
+         "name": "NSF REVIEW CONTROL",
+         "id": "51280"
+      },
+      {
+         "name": "BANK NAME and ADDRESS ",
+         "id": "1601"
+      },
+      {
+         "name": "BRANCH NAME/ADDRESS ",
+         "id": "1602"
+      },
+      {
+         "name": "SUB-PRODUCT DESCRIPTION ",
+         "id": "1607"
+      },
+      {
+         "name": "ACCESS TO SERVICE CHARGE INFORMATION  ",
+         "id": "1612"
+      },
+      {
+         "name": "ZIP CODE TO CITY/STATE CONVERSION TABLE",
+         "id": "1620"
+      },
+      {
+         "name": "RESTRAINT PROCESS CONTROL ",
+         "id": "1658"
+      },
+      {
+         "name": "OFFICER DATA",
+         "id": "1671"
+      },
+      {
+         "name": "SYSTEM INTEGRATION CONTROL ",
+         "id": "1673"
+      },
+      {
+         "name": "RESTART CONTROL ",
+         "id": "1685"
+      },
+      {
+         "name": "MISC COMPANY CONTROL",
+         "id": "1695"
+      },
+      {
+         "name": "COUNTRY CODE CONVERSION PCD",
+         "id": "1696"
+      },
+      {
+         "name": "BRANCH REGION ASSIGNMENT",
+         "id": "2507"
+      },
+      {
+         "name": "SIC CODE DESC ",
+         "id": "2509"
+      },
+      {
+         "name": "NAME/ADDRESS USER DATA ",
+         "id": "2510"
+      },
+      {
+         "name": "DATA CONVERTED FROM PCD-ID 24184",
+         "id": "24184"
+      },
+      {
+         "name": "GENERAL LEDGER INTERIM TABLE ",
+         "id": "36000"
+      },
+      {
+         "name": " GENERAL LEDGER INTERFACE FORMAT PROCESS INFO ",
+         "id": "36003"
+      },
+      {
+         "name": "CURRENCY CONVERSION: TABLE DEFINITION ",
+         "id": "37220"
+      },
+      {
+         "name": "CURRENCY CONVERSION: EXCHANGE RATES ",
+         "id": "37230"
+      },
+      {
+         "name": "EXTERNAL CYCLE CODES ",
+         "id": "1604"
+      },
+      {
+         "name": "STATUS CODE DESCRIPTION ",
+         "id": "1605"
+      },
+      {
+         "name": "PRODUCT DESCRIPTION ",
+         "id": "1606"
+      },
+      {
+         "name": "PRODUCT REPORT FLAGS",
+         "id": "1618"
+      },
+      {
+         "name": "CHECK DIGIT CALC",
+         "id": "1621"
+      },
+      {
+         "name": "NAME/ADDR USE CODE",
+         "id": "1622"
+      },
+      {
+         "name": "ACCT NO. DISP/EDIT ",
+         "id": "1625"
+      },
+      {
+         "name": "INTEREST RATE INDEX ",
+         "id": "1699"
+      },
+      {
+         "name": "DTS Holiday index   ",
+         "id": "2002"
+      },
+      {
+         "name": "DTS Holiday Calc Tbl ",
+         "id": "2003"
+      },
+      {
+         "name": "DTS Date Calc PCD",
+         "id": "2005"
+      },
+      {
+         "name": "DTS HOLIDAY TABLE",
+         "id": "2015"
+      },
+      {
+         "name": "DTS Time Shift",
+         "id": "2020"
+      },
+      {
+         "name": "BANK ABANDONED FUNDS INFORMATION ",
+         "id": "2502"
+      },
+      {
+         "name": "US IRS MAG TAPE HEADER INFORMATION",
+         "id": "2504"
+      },
+      {
+         "name": "COUNTRY CODE ",
+         "id": "2522"
+      },
+      {
+         "name": "COUNTRY CODE ",
+         "id": "2523"
+      },
+      {
+         "name": "LOC TRANSACTION PROC CRITERIA ",
+         "id": "2527"
+      },
+      {
+         "name": " AUDIT CONFIRMATION PROCESS ACTIVITIES ",
+         "id": "2549"
+      },
+      {
+         "name": "REGION DESCRIPTION  ",
+         "id": "2596"
+      },
+      {
+         "name": "GENERAL LEDGER INTERFACE ACCOUNT TABLE ",
+         "id": "5501"
+      },
+      {
+         "name": "GENERAL LEDGER INTERFACE FORMAT PROCESS INFO   ",
+         "id": "5506"
+      },
+      {
+         "name": "CHECK WRITING SYSTEM FORMAT CONTROLS",
+         "id": "5980"
+      },
+      {
+         "name": "CHECK WRITING SYSTEM CHECK NUMBER CONTROLS AND RESTARTS",
+         "id": "5981"
+      },
+      {
+         "name": "HOGAN SYSTEMS, INC. CURRENCY CONVERSION TABLE ",
+         "id": "8495"
+      },
+      {
+         "name": "CDS CATEGORY CONTROL ",
+         "id": "8844"
+      },
+      {
+         "name": " CDS TRANSACTION CONTROL ",
+         "id": "8845"
+      },
+      {
+         "name": "OTP COMPANY CONTROL ",
+         "id": "9280"
+      },
+      {
+         "name": "DATA CONVERTED FROM PCD-ID 36001    ",
+         "id": "36001"
+      },
+      {
+         "name": "FSS - WAREHOUSE ACTIVITY SELECTION",
+         "id": "36300"
+      },
+      {
+         "name": "EXCHANGE RATES: SECONDARY KEY FOR 37230",
+         "id": "37239"
+      },
+      {
+         "name": "INPUT TRAN CODE TO FPS PATH ",
+         "id": "38051"
+      },
+      {
+         "name": "PRODUCT-APP-FAMILY CONTROL",
+         "id": "38400"
+      },
+      {
+         "name": "LANGUAGE CODE DESCRIPTION ",
+         "id": "38403"
+      },
+      {
+         "name": "SYSTEM INTEGRATION CONTROL",
+         "id": "38900"
+      },
+      {
+         "name": "COMPANY NAME/ADDRESS",
+         "id": "1601"
+      },
+      {
+         "name": "BRANCH NAME AND ADDRESS",
+         "id": "1602"
+      },
+      {
+         "name": "SUB-PRODUCT DESCRIPTION",
+         "id": "1607"
+      },
+      {
+         "name": "ZIP CODE TO CITY/STATE CONVERSION TABLE",
+         "id": "1620"
+      },
+      {
+         "name": "RESTRAINT PROCESS CONTROL",
+         "id": "1658"
+      },
+      {
+         "name": "OFFICER DATA",
+         "id": "1671"
+      },
+      {
+         "name": "MISCELLANEOUS BANK CONTROL DATA",
+         "id": "1695"
+      },
+      {
+         "name": "COUNTRY CODE CONVERSION PCD",
+         "id": "1696"
+      },
+      {
+         "name": "BRANCH REGION ASSIGNMENT",
+         "id": "2507"
+      },
+      {
+         "name": "SIC CODE DESC",
+         "id": "2509"
+      },
+      {
+         "name": "NAME/ADDRESS USER DATA",
+         "id": "2510"
+      },
+      {
+         "name": "RESTRAINT CHARGES",
+         "id": "2512"
+      },
+      {
+         "name": "GENERAL LEDGER INTERFACE TABLE",
+         "id": "5500"
+      },
+      {
+         "name": "GENERAL LEDGER INTERFACE FORMAT PROCESS INFO",
+         "id": "5506"
+      },
+      {
+         "name": "DYNAMIC ENVIRONMENT PROCESSING CONTROL",
+         "id": "8001"
+      },
+      {
+         "name": "24 HOUR PROCESSING ",
+         "id": "8007"
+      },
+      {
+         "name": "CDS COMPANY CONTROL ",
+         "id": "8843"
+      },
+      {
+         "name": "OTP INPUT DEFAULTS ",
+         "id": "9281"
+      },
+      {
+         "name": "OTP TYPE/CLASS CONTROL ",
+         "id": "9282"
+      },
+      {
+         "name": "OTP DISPOSITION CONTROL",
+         "id": "9283"
+      },
+      {
+         "name": "TABLE DEFINITION",
+         "id": "37220"
+      },
+      {
+         "name": "CUR EXCHANGE RATES",
+         "id": "37230"
+      },
+      {
+         "name": "COUNTRY CODE",
+         "id": "2523"
+      },
+      {
+         "name": "COMPANY PROPAGATION",
+         "id": "48840"
+      },
+      {
+         "name": "EFF DATE PROPAGATION",
+         "id": "48841"
+      },
+      {
+         "name": "COID \u0026 EFF DATE PROP",
+         "id": "48842"
+      },
+      {
+         "name": "SUBP POLICY PCD",
+         "id": "54011"
+      },
+      {
+         "name": "TDA FILE STATUS IND",
+         "id": "54018"
+      },
+      {
+         "name": "MULTI-REGION DFLTS",
+         "id": "54024"
+      },
+      {
+         "name": "CIF ROUTER TDA",
+         "id": "54100"
+      },
+      {
+         "name": "EXTERNAL CYCLE CODES",
+         "id": "1604"
+      },
+      {
+         "name": "SPS - PRODUCT REPORT FLAGS ",
+         "id": "1618"
+      },
+      {
+         "name": "ACCT NO. DISP/EDIT",
+         "id": "1625"
+      },
+      {
+         "name": "TRANSACTION SYSTEM FLOATING BASE RATES",
+         "id": "1699"
+      },
+      {
+         "name": " COUNTRY CODE ",
+         "id": "2522"
+      },
+      {
+         "name": "AUDIT CONFIRMATION PROCESS ACTIVITIES ",
+         "id": "2549"
+      },
+      {
+         "name": "REGION DESCRIPTION PCD",
+         "id": "2596"
+      },
+      {
+         "name": "GENERAL LEDGER INTERFACE ACCOUNT TABLE",
+         "id": "5501"
+      },
+      {
+         "name": "CHECK WRITING SYSTEM FORMAT CONTROLS",
+         "id": "5980"
+      },
+      {
+         "name": "CHECK WRITING SYSTEM CHECK NUMBER CONTROLS AND RESTARTS",
+         "id": "5981"
+      },
+      {
+         "name": "CURRENCY CODES",
+         "id": "8495"
+      },
+      {
+         "name": "CDS CATEGORY CONTROL",
+         "id": "8844"
+      },
+      {
+         "name": " CDS TRANSACTION CONTROL ",
+         "id": "8845"
+      },
+      {
+         "name": "OTP COMPANY CONTROL",
+         "id": "9280"
+      },
+      {
+         "name": "NAS, CIS, RPM, LOANS  ACCT NUMBER DISPLAY/EDIT PARAMETERS",
+         "id": "9999"
+      },
+      {
+         "name": "GENERAL LEDGER INTERIM TABLE",
+         "id": "36000"
+      },
+      {
+         "name": "GENERAL LEDGER INTERFACE TABLE",
+         "id": "36001"
+      },
+      {
+         "name": "GENERAL LEDGER INTERFACE FORMAT PROCESS INFO",
+         "id": "36003"
+      },
+      {
+         "name": "ACCRUAL WAREHOUSE ACTIVITIES",
+         "id": "36300"
+      },
+      {
+         "name": " EXCHANGE RATES: SECONDARY KEY FOR 37230",
+         "id": "37239"
+      },
+      {
+         "name": "INPUT TRAN CODE TO FPS PATH ",
+         "id": "38051"
+      },
+      {
+         "name": "PRD-APP-FAMILY CONTROL ",
+         "id": "38400"
+      },
+      {
+         "name": "LANGUAGE CODE DESCRIPTION",
+         "id": "38403"
+      },
+      {
+         "name": "SIM CDMF CONTROL INFO",
+         "id": "38900"
+      },
+      {
+         "name": "STATUS CODE DESCRIPTION",
+         "id": "1605"
+      },
+      {
+         "name": "PRODUCT DESCRIPTION",
+         "id": "1606"
+      },
+      {
+         "name": "CHECK DIGIT CALCULATION CRITERIA",
+         "id": "1621"
+      },
+      {
+         "name": "NAME AND ADDRESS USE CODE DESC ",
+         "id": "1622"
+      },
+      {
+         "name": "SIM INTERFACE DEFINITION ",
+         "id": "1673"
+      },
+      {
+         "name": "RESTART CONTROL ",
+         "id": "1685"
+      },
+      {
+         "name": "DTS HOLIDAY INDEX TABLE",
+         "id": "2002"
+      },
+      {
+         "name": "DTS Holiday Calculation Table",
+         "id": "2003"
+      },
+      {
+         "name": "DTS Date Calculation Control",
+         "id": "2005"
+      },
+      {
+         "name": "Date Services Holiday Table V4",
+         "id": "2015"
+      },
+      {
+         "name": "DTS Time Shift",
+         "id": "2020"
+      },
+      {
+         "name": "BANK ABANDONED FUNDS INFO PCD",
+         "id": "2502"
+      },
+      {
+         "name": " US IRS MAG TAPE FORMAT INFORMATION",
+         "id": "2504"
+      },
+      {
+         "name": "PCD 2512 BY REGION SECONDARY KEY",
+         "id": "7312"
+      }
+   ]
+}

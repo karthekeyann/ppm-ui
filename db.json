@@ -1,0 +1,299 @@
+{
+  "uuidgenerator": {
+    "status": "SUCCESS",
+    "statusCode": "RS0600",
+    "description": "UUID Generated Successfully",
+    "uuid": "b7969777-9245-a216-18e5-e44e65ffc55f"
+  },
+  "plans": [
+    {
+      "basePackages": [
+        {
+          "price": [
+            {
+              "bestPrice": 20,
+              "billing": "recurring",
+              "priceType": "retail",
+              "basePrice": 25
+            }
+          ],
+          "promotions": [
+            {
+              "consequenceType": "credit",
+              "duration": "7",
+              "promotionType": "Product",
+              "durationPeriod": "NoOfDays",
+              "consequencevalue": "0",
+              "productType": "DTV Now promotion",
+              "productId": "100",
+              "displayName": "7 days free",
+              "billingProductCode": "LAL07",
+              "billingProductId": "187",
+              "uom": "UOM"
+            },
+            {
+              "consequenceType": "credit",
+              "duration": "7",
+              "promotionType": "Product",
+              "durationPeriod": "NoOfDays",
+              "consequencevalue": "0",
+              "productType": "DTV Now promotion",
+              "productId": "101",
+              "displayName": "This $1 off promo is for demonstration",
+              "billingProductCode": "LAL07",
+              "billingProductId": "187",
+              "uom": "UOM"
+            }
+          ],
+          "images": [
+            {
+              "name": "image 1",
+              "type": "small",
+              "url": "image1url"
+            },
+            {
+              "name": "image 2",
+              "type": "medium",
+              "url": "image2url"
+            }
+          ],
+          "productType": "DTV Now base package",
+          "productId": "00001",
+          "displayName": "Live A Little",
+          "billingProductCode": "BillingProductCode0",
+          "billingProductId": "billingProductId0",
+          "noOfChannels": "60+ live channels"
+        }
+      ],
+      "offerId": "1000",
+      "includedFeatures": [
+        {
+          "rank": 1,
+          "text": "Feature 1"
+        },
+        {
+          "rank": 2,
+          "text": "Feature 2"
+        }
+      ]
+    },
+    {
+      "basePackages": [
+        {
+          "price": [
+            {
+              "bestPrice": 20,
+              "billing": "recurring",
+              "priceType": "retail",
+              "basePrice": 25
+            }
+          ],
+          "promotions": [
+            {
+              "consequenceType": "credit",
+              "duration": "7",
+              "promotionType": "Product",
+              "durationPeriod": "NoOfDays",
+              "consequencevalue": "0",
+              "productType": "DTV Now promotion",
+              "productId": "100",
+              "displayName": "7 days free",
+              "billingProductCode": "LAL07",
+              "billingProductId": "187",
+              "uom": "UOM"
+            },
+            {
+              "consequenceType": "credit",
+              "duration": "7",
+              "promotionType": "Product",
+              "durationPeriod": "NoOfDays",
+              "consequencevalue": "0",
+              "productType": "DTV Now promotion",
+              "productId": "101",
+              "displayName": "This $1 off promo is for demonstration",
+              "billingProductCode": "LAL07",
+              "billingProductId": "187",
+              "uom": "UOM"
+            }
+          ],
+          "images": [
+            {
+              "name": "image 1",
+              "type": "small",
+              "url": "image1url"
+            },
+            {
+              "name": "image 2",
+              "type": "medium",
+              "url": "image2url"
+            }
+          ],
+          "productType": "DTV Now base package",
+          "productId": "00002",
+          "displayName": "Just Right",
+          "billingProductCode": "BillingProductCode1",
+          "billingProductId": "billingProductId1",
+          "noOfChannels": "60+ live channels"
+        }
+      ],
+      "offerId": "1001",
+      "includedFeatures": [
+        {
+          "rank": 1,
+          "text": "Feature 1"
+        },
+        {
+          "rank": 2,
+          "text": "Feature 2"
+        }
+      ]
+    },
+    {
+      "basePackages": [
+        {
+          "price": [
+            {
+              "bestPrice": 20,
+              "billing": "recurring",
+              "priceType": "retail",
+              "basePrice": 25
+            }
+          ],
+          "promotions": [
+            {
+              "consequenceType": "credit",
+              "duration": "7",
+              "promotionType": "Product",
+              "durationPeriod": "NoOfDays",
+              "consequencevalue": "0",
+              "productType": "DTV Now promotion",
+              "productId": "100",
+              "displayName": "7 days free",
+              "billingProductCode": "LAL07",
+              "billingProductId": "187",
+              "uom": "UOM"
+            },
+            {
+              "consequenceType": "credit",
+              "duration": "7",
+              "promotionType": "Product",
+              "durationPeriod": "NoOfDays",
+              "consequencevalue": "0",
+              "productType": "DTV Now promotion",
+              "productId": "101",
+              "displayName": "This $1 off promo is for demonstration",
+              "billingProductCode": "LAL07",
+              "billingProductId": "187",
+              "uom": "UOM"
+            }
+          ],
+          "images": [
+            {
+              "name": "image 1",
+              "type": "small",
+              "url": "image1url"
+            },
+            {
+              "name": "image 2",
+              "type": "medium",
+              "url": "image2url"
+            }
+          ],
+          "productType": "DTV Now base package",
+          "productId": "00003",
+          "displayName": "Go Big",
+          "billingProductCode": "BillingProductCode2",
+          "billingProductId": "billingProductId2",
+          "noOfChannels": "60+ live channels"
+        }
+      ],
+      "offerId": "1002",
+      "includedFeatures": [
+        {
+          "rank": 1,
+          "text": "Feature 1"
+        },
+        {
+          "rank": 2,
+          "text": "Feature 2"
+        }
+      ]
+    },
+    {
+      "basePackages": [
+        {
+          "price": [
+            {
+              "bestPrice": 20,
+              "billing": "recurring",
+              "priceType": "retail",
+              "basePrice": 25
+            }
+          ],
+          "promotions": [
+            {
+              "consequenceType": "credit",
+              "duration": "7",
+              "promotionType": "Product",
+              "durationPeriod": "NoOfDays",
+              "consequencevalue": "0",
+              "productType": "DTV Now promotion",
+              "productId": "100",
+              "displayName": "7 days free",
+              "billingProductCode": "LAL07",
+              "billingProductId": "187",
+              "uom": "UOM"
+            },
+            {
+              "consequenceType": "credit",
+              "duration": "7",
+              "promotionType": "Product",
+              "durationPeriod": "NoOfDays",
+              "consequencevalue": "0",
+              "productType": "DTV Now promotion",
+              "productId": "101",
+              "displayName": "This $1 off promo is for demonstration",
+              "billingProductCode": "LAL07",
+              "billingProductId": "187",
+              "uom": "UOM"
+            }
+          ],
+          "images": [
+            {
+              "name": "image 1",
+              "type": "small",
+              "url": "image1url"
+            },
+            {
+              "name": "image 2",
+              "type": "medium",
+              "url": "image2url"
+            }
+          ],
+          "productType": "DTV Now base package",
+          "productId": "00001",
+          "displayName": "Live A Little",
+          "billingProductCode": "BillingProductCode0",
+          "billingProductId": "billingProductId0",
+          "noOfChannels": "60+ live channels"
+        }
+      ],
+      "offerId": "1000",
+      "includedFeatures": [
+        {
+          "rank": 1,
+          "text": "Feature 1"
+        },
+        {
+          "rank": 2,
+          "text": "Feature 2"
+        }
+      ]
+    }
+  ],
+  "addToCart": {
+"offerId": [4000],
+"dueToday":"0",
+"dueMonthly":"25"
+}
+}

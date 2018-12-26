@@ -1,0 +1,85 @@
+<app-side-menu></app-side-menu>
+<div style="margin-right: -15px; margin-left: 230px; margin-top: -528px;" class="row export-pcd">
+
+ 
+
+
+
+<br>
+<p style="font-weight:bold; font-size:20px;">Mass Maintenance > Manage Templates</p>
+
+<br>
+
+<div class="message" *ngIf = "statusCode">** Template Updated Successfully </div>
+
+<br>
+
+<div>
+Template Name :
+<input type = "text" id="templateName" disabled placeholder="Enter Template name here" class="form-control" [(ngModel)]="template.name"/>
+<br>
+
+<label>Application :</label>
+
+<select (change) = "onChangeOfApplication($event)">
+<option *ngFor = "let i of applications">{{i}}</option>
+</select>
+
+<button class="btn" (click) = updateTemplate()>Save</button>
+
+<button class="btn" style="margin-left:10px;" routerLink="/templates" routerLinkActive="active">Back</button>
+
+</div>
+
+<br> <br>
+
+<hr>
+<br> 
+
+<table>
+<tr>
+<th>Parameter Set Number</th>
+<th>Parameter Set Name</th>
+<th>Select</th>
+</tr>
+
+<tr *ngFor = "let p of globalParameterSets">
+<td>{{p.paramSetNumber}}</td>
+<td>{{p.paramSetName}}</td>
+<td><button class="btnTable" (click) = addParameterSet(p)>Add</button></td>
+</tr>
+</table>
+
+<br>
+<hr>
+
+<br>
+
+
+<table>
+<tr>
+<th>Application</th>
+<th>Parameter Set Number</th>
+<th>Parameter Set Name</th>
+<th>Company</th>
+<th>Effective Date</th>
+<th>Delete</th>
+</tr>
+
+<tr *ngFor = "let paramSet of selectedParameterSets; let i = index">
+<td>{{paramSet.application}}</td>
+<td>{{paramSet.paramSetNumber}}</td>
+<td>{{paramSet.paramSetName}}</td>
+<td><input type="text" id="company" class="form-control" [(ngModel)]="paramSet.company"/></td>
+<td><input type="text" id="effectiveDate" class="form-control" [(ngModel)]="paramSet.effectiveDate"/></td>
+<td><button class="btnTable" (click) = deleteParameterSet(i)>Delete</button></td>
+</tr>
+
+
+</table>   
+
+<br>
+
+
+
+

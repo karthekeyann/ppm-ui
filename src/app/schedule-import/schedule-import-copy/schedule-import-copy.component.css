@@ -1,0 +1,10 @@
+
+.required label:before {
+    color: red;
+    content: ' *';
+    display:inline;
+}
+#bloc1, #bloc2, #bloc3
+{
+    display:inline;
+}

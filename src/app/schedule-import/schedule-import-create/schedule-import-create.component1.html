@@ -1,0 +1,148 @@
+<app-side-menu></app-side-menu>
+<div style="margin-right: -15px; margin-left: 230px; margin-top: -528px;">
+	<div>
+		<div>
+			<div>
+				<h4 style="color: blue; align-self: left">Scheduled Import</h4>
+				
+				<form (ngSubmit)="formData.valid && createImport(formData.value)"
+					#formData="ngForm" novalidate>
+					<div style="padding-left: 76%">
+						<button type="submit" class="btn btn-md btn-default">save</button>
+						<button type="button" routerLink="cancel"
+							class="btn btn-md btn-default" (click)="cancelImport()">cancel</button>
+					</div><br>
+					<div class="required">
+					
+						<label for="taskName">Task Name</label> <input type="text"
+							style="display: inline-block; width: 80% !important"
+							 name="taskName" #taskName="ngModel" ngModel
+							required>
+							<div *ngIf="formData.submitted && !taskName.valid"
+							style="color: red; size: 20px;">Task Name is required</div>
+					</div>
+
+					<br>
+					<div class="required">
+						<!-- Todo ngbDatepicker #d="ngbDatepicker"  -->
+						<label for="startDate">Start Date</label> <input
+							 placeholder="yyyy-mm-dd" name="startDate"
+							#startDate="ngModel" ngModel
+							required />
+							
+
+						<button class="btn btn-outline-secondary calendar"
+							(click)="d.toggle()" type="button"></button>
+						&nbsp;&nbsp;
+						
+						<div id="bloc1"> <label for="frequency">Frequency
+						</label> <select  name="frequency"
+							(change)="getDayToImport(frequency.value)" #frequency="ngModel" ngModel
+							required>
+							 <option *ngFor="let freqs of freq" [value]="freqs">{{freqs}}</option>
+						</select></div>
+						<div id="bloc1" *ngIf="frequency.value === 'Weekly' || frequency.value === 'Monthly'">
+						 <div id="bloc2" *ngIf="frequency.value === 'Monthly'"><label for="dayToImport">Date To Import </label> </div>
+						<div id="bloc2" *ngIf="frequency.value === 'Weekly'"><label for="dayToImport">Day To Import </label> </div>
+						<div id="bloc3">
+						
+						<select name="dayToImport"  #dayToImport="ngModel" ngModel required>
+							 <option *ngFor="let item of day" [value]="item">{{item}}</option> 
+						</select>
+						<div *ngIf="formData.submitted && !dayToImport.valid"
+							style="color: red;">please select DayToImport</div>
+						</div></div>
+					</div>
+					<div *ngIf="formData.submitted && !startDate.valid"
+							style="color: red;">Start Date required</div>
+						<div *ngIf="formData.submitted && !frequency.valid"
+							style="color: red;">please select Frequency</div>
+					<br>
+
+					<div class="required">
+						<label>File Location </label><input type="text"	style="display: inline-block; width: 80% !important" name="fileLocation" #location="ngModel" ngModel required />
+						<div *ngIf="formData.submitted && !location.valid"
+							style="color: red;">File location is required</div>
+						<div><h6>(please provide the full path of the file with file name as C:\\users\\smanickam2\\CISimport.xls)</h6></div>
+					</div>
+					<br>
+					<div>
+						<label for="remarks">Remarks</label> <input style="width: 81%;"
+							type="text" name="remarks" ngModel
+							required />
+					</div>
+					<br>
+
+					<div>
+						<style>
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 30px;
+	height: 17px;
+}
+
+.switch input {
+	display: none;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 13px;
+	width: 13px;
+	left: 2px;
+	bottom: 2px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked+.slider {
+	background-color: green;
+}
+
+input:focus+.slider {
+	box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+	-webkit-transform: translateX(13px);
+	-ms-transform: translateX(13px);
+	transform: translateX(13px);
+}
+
+/* Rounded sliders */
+.slider.round {
+	border-radius: 17px;
+}
+
+.slider.round:before {
+	border-radius: 35%;
+}
+</style>
+
+						<label for="status">Activate Shedule? </label> <label
+							class="switch"><input type="checkbox" name="status" [(ngModel)]="activateShedule"
+							ngModel checked> <span class="slider round"></span> </label>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>
+
+

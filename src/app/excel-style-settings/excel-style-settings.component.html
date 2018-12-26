@@ -1,0 +1,387 @@
+<head>
+  <style>
+    .color-select {
+      position: relative;
+      font-family: Arial;
+      clear: inherit !important
+    }
+
+    .color-select_area {
+      font-family: Arial;
+      font-size: 14px;
+      padding: 5px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+    }
+
+    .color-picker {
+      float: right;
+      width: 10px;
+      height: 20px;
+      margin-right: 16px;
+      background: #A82D2F;
+      border: 1px solid #cccccc;
+      bottom: 2px;
+    }
+
+    .color-select_area:after {
+      position: absolute;
+      content: "";
+      top: 18px;
+      right: 14px;
+      width: 0;
+      height: 0;
+      border: 5px solid transparent;
+      border-color: #979797 transparent transparent transparent;
+    }
+
+    .bcPicker-picker {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .bcPicker-palette {
+      width: 160px;
+      position: absolute;
+      top: 30px;
+      right: 15px;
+      padding: 5px;
+      border: 10px solid #ececec;
+      background-color: #fdfdfd;
+      z-index: 10;
+      display: none;
+    }
+
+    .bcPicker-palette>.bcPicker-color {
+      width: 14px;
+      height: 14px;
+      margin: 2px;
+      display: inline-block;
+      border: 1px solid #efefef;
+    }
+
+    .middle-hex span {
+      color: #292929;
+      margin-left: 10px;
+    }
+
+    .bcPicker-palette {
+      top: 25px !important;
+    }
+
+    .display-inline {
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<!-- start wrapper -->
+
+<top-menu>Loading...</top-menu>
+<!-- end header -->
+<div class="container">
+  <app-side-menu></app-side-menu>
+  <!-- end left panel -->
+
+  <!-- start right panel -->
+  <div class="right_panel">
+    <div class="breadcrumbs_area">
+      <ul class="breadcrumb">
+        <li>Mass Maintenance</li>
+        <li>Perform Mass Maintenance</li>
+        <li>Excel Style Setting</li>
+      </ul>
+    </div>
+    <!-- start content -->
+    <div class="content">
+      <h1>Excel Style Setting</h1>
+      <div class="content_area">
+        <div class="datatable">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col" width="10%"><a href="#">Location</a></th>
+                <th scope="col" width="44%"><a href="#">Information</a></th>
+                <th scope="col" width="10%"><a href="#">Font Type</a></th>
+                <th scope="col" width="10%"><a href="#">Style</a></th>
+                <th scope="col" width="6%"><a href="#">Size</a></th>
+                <th scope="col" width="10%"><a href="#">Foreground Font Color</a></th>
+                <th scope="col" width="10%"><a href="#">Background Cell Color</a></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Title Row</td>
+                <td>Parameter Set Name and Address</td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">Calibiri</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">Normal</option>
+                      <option value="0">Bold</option>
+                      <option value="0">Italic</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">11</option>
+                      <option value="0">12</option>
+                      <option value="0">13</option>
+                      <option value="0">14</option>
+                      <option value="0">15</option>
+                    </select>
+                  </div>
+                </td>
+                <td class="color-select" style="clear:both">
+                  <div class="color-select_area"> Color<span id="bcPicker1" class="color-picker"></span>
+                    <div class="middle-hex display-inline"></div>
+                  </div>
+                </td>
+                <td class="color-select" style="clear:both">
+                  <div class="color-select_area"> Color<span id="bcPicker2" class="color-picker"></span>
+                    <div class="middle-hex display-inline"></div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Heading Row</td>
+                <td>Keys - Mandatory</td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">Calibiri</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">Normal</option>
+                      <option value="0">Bold</option>
+                      <option value="0">Italic</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">11</option>
+                      <option value="0">12</option>
+                      <option value="0">13</option>
+                      <option value="0">14</option>
+                      <option value="0">15</option>
+                    </select>
+                  </div>
+                </td>
+                <td class="color-select">
+                  <div class="color-select_area"> Color<span id="bcPicker3" class="color-picker"></span>
+                    <div class="middle-hex display-inline"></div>
+                  </div>
+                </td>
+                <td class="color-select">
+                  <div class="color-select_area"> Color<span id="bcPicker4" class="color-picker"></span>
+                    <div class="middle-hex display-inline"></div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Heading Row</td>
+                <td>Keys - Optional</td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">Calibiri</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">Normal</option>
+                      <option value="0">Bold</option>
+                      <option value="0">Italic</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">11</option>
+                      <option value="0">12</option>
+                      <option value="0">13</option>
+                      <option value="0">14</option>
+                      <option value="0">15</option>
+                    </select>
+                  </div>
+                </td>
+                <td class="color-select">
+                  <div class="color-select_area"> Color<span id="bcPicker5" class="color-picker"></span>
+                    <div class="middle-hex display-inline"></div>
+                  </div>
+                </td>
+                <td class="color-select">
+                  <div class="color-select_area"> Color<span id="bcPicker6" class="color-picker"></span>
+                    <div class="middle-hex display-inline"></div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Data Row</td>
+                <td>Odd Numbered</td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">Calibiri</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">Normal</option>
+                      <option value="0">Bold</option>
+                      <option value="0">Italic</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">11</option>
+                      <option value="0">12</option>
+                      <option value="0">13</option>
+                      <option value="0">14</option>
+                      <option value="0">15</option>
+                    </select>
+                  </div>
+                </td>
+                <td class="color-select">
+                  <div class="color-select_area"> Color<span id="bcPicker7" class="color-picker"></span>
+                    <div class="middle-hex display-inline"></div>
+                  </div>
+                </td>
+                <td class="color-select">
+                  <div class="color-select_area"> Color<span id="bcPicker8" class="color-picker"></span>
+                    <div class="middle-hex display-inline"></div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Data Row</td>
+                <td>Even Numbered</td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">Calibiri</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">Normal</option>
+                      <option value="0">Bold</option>
+                      <option value="0">Italic</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">11</option>
+                      <option value="0">12</option>
+                      <option value="0">13</option>
+                      <option value="0">14</option>
+                      <option value="0">15</option>
+                    </select>
+                  </div>
+                </td>
+                <td class="color-select">
+                  <div class="color-select_area"> Color<span id="bcPicker9" class="color-picker"></span>
+                    <div class="middle-hex display-inline"></div>
+                  </div>
+                </td>
+                <td class="color-select">
+                  <div class="color-select_area"> Color<span id="bcPicker10" class="color-picker"></span>
+                    <div class="middle-hex display-inline"></div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Heading Row</td>
+                <td>Interested Rate Matrix - Extended Tier Data Cells</td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">Calibiri</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">Normal</option>
+                      <option value="0">Bold</option>
+                      <option value="0">Italic</option>
+                    </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">11</option>
+                      <option value="0">12</option>
+                      <option value="0">13</option>
+                      <option value="0">14</option>
+                      <option value="0">15</option>
+                    </select>
+                  </div>
+                </td>
+                <td class="color-select">
+                  <div class="color-select_area"> Color<span id="bcPicker11" class="color-picker"></span>
+                    <div class="middle-hex display-inline"></div>
+                  </div>
+                </td>
+                <td class="color-select">
+                  <div class="color-select_area"> Color<span id="bcPicker12" class="color-picker"></span>
+                    <div class="middle-hex display-inline"></div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- end content -->
+  </div>
+  <!-- end right panel -->
+</div>
+<!-- end container -->
+<!-- Footer start -->
+<div class="push_footer">&nbsp;</div>
+<div id="footer">
+  <div class="footer_area">
+    <ul>
+      <li><a href="#news">Contact us</a></li>
+      <li><a href="#contact">Search Center</a></li>
+      <li><a href="#about">Site Map</a></li>
+    </ul>
+    <p> Powered by Intelligent SOA <sup>TM</sup></p>
+    <p> &copy; CeleritiFinTech. All rights reserved</p>
+  </div>
+</div>
+<!-- end footer -->
+
+<!-- end wrapper -->
